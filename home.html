@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap-grid.rtl.min.css' integrity='sha512-CY4dHumm98hWuKod7pZpSiKkIvof7Av7OBmcKxqZuvggvym+XKifAEFi/5rK6I5PFUiDOdUFP7H2jjRNaZ2/7A==' crossorigin='anonymous'/>
+    <title>Home</title>
+</head>
+<body class="bg-dark text-dark p-3 mb-2  d-flex justify-content-center align-items-center" class="" style="height: 100vh">
+    <div class="container bg-white rounded shadow p-4 col-xl-4 col-lg-6 justify-content-center align-items-center">
+        <h2 class="w-100 text-center mb-4">¿Qué tabla quieres manipular?</h2>
+        <div id="divForm">
+            <form action="" id="">
+                <div id="divInputs">
+                    <input type="button" value="Agregar registros" class="btn btn-outline-success btn-lg align-items-center" id="add">
+                    <input type="button" value="Consultar tabla" class="btn btn-outline-info btn-lg" id="qry">
+                    <br>
+                    <input type="button" value="Eliminar registros" class="btn btn-outline-danger btn-lg" id="del">
+                    <input type="button" value="Actualizar registros" class="btn btn-outline-warning btn-lg" id="upd">
+                    <br>
+                    <br>
+                    <input type="button" value="Ver registros de la tabla" class="btn btn-outline-dark" id="upd">
+                    <br>
+                    <br>
+                </div>
+            </form>
+        </div>
+                <input type="button" value="Salir" class="btn btn-outline-danger btn-lg" onclick="location.href='./index.html'">
+                <br>
+                <label for="mnuTablas" class="text-center">Tabla a elegir:</label>
+                <select name="tablas" id="mnuTablas" class="form-select" aria-label="Default select example">
+                    <option value="1"></option>
+                    <option value="2">centros</option>
+                    <option value="3">sala</option>
+                    <option value="4">socios</option>
+                </select>
+            <p id="pp">
+
+            </p>
+        <div id="registros">
+        </div>
+        <!--
+        <input type="button" value="Cargar Tablas" class="btn btn-outline-warning btn-lg" id="btnCarga">
+        -->   
+        
+    </div>
+    
+    
+</body>
+<script>
+    // let btnCarga = document.getElementById("btnCarga");
+    // btnCarga.addEventListener('click', ()=>{
+    //     let menu = document.getElementById("mnuTablas");
+    //     let ops ="";
+    //     fetch("http://localhost/phpmyadmin/index.php?route=/sql&db=basedatosproyecto&table")
+    //     .then(response => response.json())
+    //     .then(tablas => {
+
+    //         tablas.forEach(tabla=>{
+    //       	ops+=`<option value='${tabla.id}'>${tabla.tabla}</option>`;
+    //       });
+    //       menu.innerHTML=ops;
+    //     })
+    // });
+
+    let mnuTablas = document.getElementById("mnuTablas");
+    let add = document.getElementById("add");
+    let del = document.getElementById("del");
+    let upd = document.getElementById("upd");
+    let qry = document.getElementById("qry");
+    let pp = document.getElementById("pp");
+    let divInputs = document.getElementById("divForm");
+    mnuTablas.addEventListener('change', ()=>{
+        if(mnuTablas.value=="2"){
+            console.log("pepe");
+            divInputs.innerHTML = "";
+            divInputs.innerHTML = '<form action="" id="">'+
+                '<div id="divInputs">'+
+                    '<input type="button" value="Agregar registros"  class="btn btn-outline-success btn-lg align-items-center" id="add"  onclick="location.href=`./addCentro.html`">'+
+                    '<input type="button" value="Consultar tabla" onclick="location.href=`./qryCentro.html`"  class="btn btn-outline-info btn-lg" id="qry">'+
+                    '<br>'+
+                    '<input type="button" value="Eliminar registros" onclick="location.href=`./delCentro.html`" class="btn btn-outline-danger btn-lg" id="del">'+
+                    '<input type="button" value="Actualizar registros" onclick="location.href=`./updCentro.html`" class="btn btn-outline-warning btn-lg" id="upd">'+
+                    '<br>'+
+                    '<br>'+
+                    '<input type="button" value="Ver registros de la tabla" onclick="location.href=`./verCentro.php`" class="btn btn-outline-dark" id="upd">'+
+                    '<br>'+
+                    '<br>'+
+                '</div>'+
+                '</form>';
+        }
+        if(mnuTablas.value=="3"){
+            divInputs.innerHTML = "";
+            divInputs.innerHTML = '<form action="" id="">'+
+                '<div id="divInputs">'+
+                    '<input type="button" value="Agregar registros" onclick="location.href=`./addSala.html`" class="btn btn-outline-success btn-lg align-items-center" id="add">'+
+                    '<input type="button" value="Consultar tabla" onclick="location.href=`./qrySala.html`"  class="btn btn-outline-info btn-lg" id="qry">'+
+                    '<br>'+
+                    '<input type="button" value="Eliminar registros" onclick="location.href=`./delSala.html`" class="btn btn-outline-danger btn-lg" id="del">'+
+                    '<input type="button" value="Actualizar registros" onclick="location.href=`./updSala.html`" class="btn btn-outline-warning btn-lg" id="upd">'+
+                    '<br>'+
+                    '<br>'+
+                    '<input type="button" value="Ver registros de la tabla" onclick="location.href=`./verSala.php`" class="btn btn-outline-dark" id="upd">'+
+                    '<br>'+
+                    '<br>'+
+                '</div>'+
+                '</form>';
+
+        }
+        if(mnuTablas.value=="4"){
+            divInputs.innerHTML = "";
+            divInputs.innerHTML = '<form action="" id="">'+
+                '<div id="divInputs">'+
+                    '<input type="button" value="Agregar registros" onclick="location.href=`./addSocio.html`" class="btn btn-outline-success btn-lg align-items-center" id="add">'+
+                    '<input type="button" value="Consultar tabla" onclick="location.href=`./qrySocio.html`" class="btn btn-outline-info btn-lg" id="qry">'+
+                    '<br>'+
+                    '<input type="button" value="Eliminar registros" onclick="location.href=`./delSocio.html`" class="btn btn-outline-danger btn-lg" id="del">'+
+                    '<input type="button" value="Actualizar registros" onclick="location.href=`./updSocio.html`" class="btn btn-outline-warning btn-lg" id="upd">'+
+                    '<br>'+
+                    '<br>'+
+                    '<input type="button" value="Ver registros de la tabla" onclick="location.href=`./verSocio.php`" class="btn btn-outline-dark" id="upd">'+
+                    '<br>'+
+                    '<br>'+
+                '</div>'+
+                '</form>';
+
+        }
+    });
+</script>
+</html>

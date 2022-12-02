@@ -1,0 +1,10 @@
+CREATE VIEW SocioNomAlfa AS SELECT nombre FROM socios ORDER BY nombre ASC;
+
+CREATE VIEW socioNomCorreo AS SELECT nombre, email FROM socios;
+
+CREATE VIEW socioNomAp AS SELECT nombre, apellidoPaterno FROM socios;
+
+CREATE VIEW socioaltaasc AS SELECT nombre, fecha_alta from socios ORDER BY fecha_alta ASC;
+
+CREATE VIEW socionomtel AS SELECT nombre, telefono from socios;
+/////////////////////////////////////

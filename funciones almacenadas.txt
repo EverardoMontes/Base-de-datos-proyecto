@@ -1,0 +1,40 @@
+//Procedimiento para registrar
+
+DELIMITER $
+CREATE DEFINER=`root`@`localhost` PROCEDURE `registrar`(usuario varchar(255), pass varchar(255))
+BEGIN
+set @qeti := concat("SELECT count(usuario) FROM admin WHERE usuario='",usuario,"';");
+PREPARE q FROM @qeti;
+EXECUTE q;
+IF(@qeti = 0)
+THEN
+set @mery := concat("INSERT into admin (usuario, pass) values ('",usuario," ', ' ",pass,");");
+PREPARE m FROM @mery;
+EXECUTE m;
+end if;
+END
+DELIMITER ;
+
+//
+
+
+DELIMITER $
+CREATE FUNCTION 'register'(usuario varchar(255), password varchar(255))
+RETURNS varchar;
+BEGIN
+DECLARE coincidencias int;
+set @query := concat("SELECT usuario FROM admin WHERE usuario='",usuario,"';");
+PREPARE q FROM @query;
+EXECUTE q;
+SET coincidencias = q;
+IF(coincidencias != null)
+THEN
+RETURN "valio madre";
+ELSE
+set @mery := concat("INSERT into admin (usuario, password), values ('",usuario,password"');");
+PREPARE m FROM @mery;
+EXECUTE m;
+END IF;
+END
+DELIMITER ;
+
