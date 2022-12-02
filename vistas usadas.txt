@@ -8,3 +8,25 @@ CREATE VIEW socioaltaasc AS SELECT nombre, fecha_alta from socios ORDER BY fecha
 
 CREATE VIEW socionomtel AS SELECT nombre, telefono from socios;
 /////////////////////////////////////
+
+CREATE VIEW salanomalfa AS SELECT nombre from sala order by nombre ASC;
+
+CREATE VIEW salanomtam AS SELECT nombre, tamaño from sala;
+
+CREATE VIEW salanomdescr AS SELECT nombre, descripcion from sala;
+
+CREATE VIEW salatipo AS SELECT tipoSala from sala;
+
+CREATE VIEW salanomcen as select nombre, centro from sala;
+
+///////////////////////////////////////////////////////
+
+CREATE VIEW centronomalfa as SELECT nombre from centros ORDER by nombre ASC;
+
+CREATE VIEW centronomdirec as SELECT nombre, direccion from centros;
+
+CREATE VIEW centrociudad as SELECT ciudad from centros GROUP BY ciudad;
+
+CREATE VIEW centronomtel as SELECT nombre, telefono from centros;
+
+CREATE VIEW centronomemail as SELECT nombre, correo from centros;
