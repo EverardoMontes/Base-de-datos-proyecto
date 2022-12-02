@@ -73,9 +73,9 @@
                 <input type="date" class="form-control" id="fechaAlta" placeholder="Fecha de Alta" name="fechaAlta" value="<?php echo $mostrar['fecha_alta'];?>">
                 <label for="fechaAlta">Fecha de Alta</label>
             </div>
-            <button type="button" class="btn" onclick="location.href=`./home.html`">Volver</button>
-                </form>
-            <?php }    ?>
+        </form>
+        <?php }    ?>
+        <button type="button" class="btn" onclick="location.href=`./home.html`">Volver</button>
         </form>
     </div>
 </body>

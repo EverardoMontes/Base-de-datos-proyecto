@@ -26,6 +26,7 @@ else if ($nr == 0){
     echo "<br>";
     echo "<br>";
     echo "CONTRASEÑA ERRONEA, TE VOY A HAKIAR";
+    header("Location: index.html");
 }
 
 

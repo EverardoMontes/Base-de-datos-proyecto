@@ -62,9 +62,10 @@
                         <input type="email" class="form-control" id="correo" placeholder="Correo" name="correo" value="<?php echo $mostrar['correo']; ?>" >
                         <label for="correo">Correo</label>
                     </div>
-                    <button type="button" class="btn" onclick="location.href=`./home.html`">Volver</button>
+                    
                 </form>
             <?php }    ?>
+            <button type="button" class="btn" onclick="location.href=`./home.html`">Volver</button>
         </form>
     </div>
 </body>
